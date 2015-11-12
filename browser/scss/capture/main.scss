@@ -1,0 +1,117 @@
+$quicksand: 'Quicksand', 'Helvetica', sans-serif;
+
+.photocapture {
+/*  background-color: white;
+  border-radius: 10px; */
+  width: 200px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+@media (max-width: 1000px) {
+  .photocapture {
+  width: 200px;
+  margin: auto;
+  margin-top: 50%;
+}
+}
+
+/*.buttonHolder{
+  width:400px;
+}*/
+
+.button{
+  background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+  background-image: linear-gradient(top, #f4f1ee, #fff);
+  border-radius: 50%;
+  box-shadow: 0px 40px 44px 0px rgba(0, 0, 0, .3), inset 0px 16px 4px 4px white, inset 0px -12px 4px 4px rgba(204,198,197,.5);
+  float:left;
+  height: 200px;
+  margin: 0 10px 10px 0;
+  position: relative;
+  width: 200px;      
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.button:after{
+  color:#e9e6e4;
+  content: "";
+  display: block;
+  font-size: 30px;
+  height: 30px;
+  text-decoration: none;
+  text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+  position: absolute;
+  width: 30px;
+}
+
+
+.button:hover{
+  background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+  background-image: linear-gradient(top, #fff, #f4f1ee);
+  color:#0088cc;
+}
+
+.button-text:hover:after{
+  color:#f94e66;
+  text-shadow:0px 0px 6px #f94e66;
+}
+
+.button-icon:hover{
+  color: #f94e66 !important;
+  text-shadow: 0px 0px 6px #f94e66;
+}
+
+.button:active{
+  background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+  background-image: linear-gradient(top, #efedec, #f7f4f4);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.button:active:after{
+  color:#dbd2d2;
+  text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+
+.button-text{
+  font-size: 5rem;
+  text-align:center;
+  color: #0088cc;
+}
+
+.hide-upload {
+ /*overflow: hidden !important;*/
+}
+
+.hide-upload input.upload {
+    width: 200px;
+    position: absolute;
+    height: 200px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 20;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.status-text {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 1rem;
+  clear: both;
+}
+
+.glyphicon-camera{
+  font-size: 10rem; 
+  padding: 40px 0 0 50px;
+}
+
+.result-text{
+  margin-top: 250px;
+}
+
+body{
+  font-family: $quicksand;
+
+}

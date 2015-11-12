@@ -25,7 +25,6 @@ var User = Promise.promisifyAll(mongoose.model('User'));
 var Slide = Promise.promisifyAll(mongoose.model('Slide'));
 
 var seedUsers = function () {
-
     var users = [
         {
             email: 'testing@fsa.com',
@@ -36,19 +35,12 @@ var seedUsers = function () {
             password: 'potus'
         }
     ];
-
     return User.createAsync(users);
-
 };
 
 var seedSlides = function () {
 
     var slides = [
-        // {
-        //     photoLink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_18_2015-4.jpg',
-        //     caption: 'this is a portrait slide',
-        //     author: 'fullstack'
-        // },
         {
             photoLink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_21_2015-13.jpg',
             caption: 'hello horizontal basecase slide',
@@ -59,7 +51,6 @@ var seedSlides = function () {
             caption: 'second landscape slide',
             author: 'fullstack3'
         }
-
     ];
 
     return Slide.createAsync(slides);

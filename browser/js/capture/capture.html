@@ -1,0 +1,14 @@
+<section id="capture">
+	<div class="photocapture">
+		<h3 class='button-text'>TAKE PHOTO</h3>
+		<br>
+		<div class="buttonHolder">
+			<div class="hide-upload button">
+				<input type="file" id="take-photo" class="upload" accept="image/*">
+				<span class="glyphicon glyphicon-camera"></span>
+			</div>
+		</div>
+		<p class="result-text text-center">{{status}}</p>
+		<img ng-show="hasImage" src="{{imageFile}}">
+	</div>
+</section>
