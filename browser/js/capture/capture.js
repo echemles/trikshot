@@ -6,46 +6,40 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('CaptureCtrl', function ($scope) {
+app.controller('CaptureCtrl', function ($scope, SlideFactory, Socket, $state) {
 	var bucket = new AWS.S3({params: {Bucket: 'trikshot'}});
+	$scope.slideReceived = false;
+	$scope.slide = {}
 	$scope.status = "Awaiting upload.";
 	$scope.hasImage = false;
+
 	var takePhoto = document.querySelector("#take-photo");
 	takePhoto.onchange = function(event){
+		$scope.status = "Sending your photo, give us a sec."
 		var image = event.target.files[0];
-    	var params = {Key: image.name, ContentType: image.type, Body: image, ACL: "public-read"};
+		EXIF.getData(image, function(){
+			$scope.slide.orientation = EXIF.getTag(this, "Orientation");
+		})
+    	var params = {Key: chance.guid() + '.jpg', ContentType: image.type, Body: image, ACL: "public-read"};
     	bucket.upload(params, function (err, data) {
-     		console.log(err, data);
-      		$scope.status = err ? "Error!" : "Uploaded";
+      		$scope.status = err ? "There's a problem saving your photo — try again later?" : "Now, for your caption —";
+      		$scope.slide.photolink = data.Location;
+      		$scope.hasImage = true;
       		$scope.$digest();
       	})
 	}
+
+	$scope.submitSlide = function(){
+		SlideFactory.addSlide($scope.slide)
+		.then(function(res){
+			Socket.emit('newSlide', res.data)
+			$scope.status = res.status === 201 ? "We got your photo. Thank you!" : "Can you do that again? There seems to be a problem."
+			$scope.slideReceived = true;
+		});
+	}
+
+	$scope.refresh = function(){
+		$state.reload();
+	}
+
 });
-
-
-// window.onload = function(){
-  
-//   var photoUpload = document.getElementById("takephoto");
-//   photoUpload.addEventListener("change", capture, false);
-//   function capture() {
-//     var thisImage = this.files[0]; /* now you can work with the file list */
-//     var params = {Key: thisImage.name, ContentType: thisImage.type, Body: thisImage};
-//     bucket.upload(params, function (err, data) {
-//       console.log(err, data);
-//       results.innerHTML = err ? 'ERROR!' : 'UPLOADED.';
-//     });
-//     // var imgURL = window.URL.createObjectURL(thisImage);
-//     // var showPicture = document.querySelector("#show-picture");
-//     // showPicture.src = imgURL;
-//     // URL.revokeObjectURL(imgURL);
-
-//     // $.ajax({
-//     //   type: 'POST',
-//     //   data: {img: thisImage.toString()},
-//     //   url: '/api/slides/',
-//     //   success: function() {
-//     //     console.log("SUCCESS")
-//     //   }
-//     // })
-//   }
-// };

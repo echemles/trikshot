@@ -1,0 +1,11 @@
+<section id="slideshow">
+	<uib-carousel interval="2000" no-wrap="false">
+		<uib-slide ng-repeat="slide in slides" class="the-slides">
+			<div class="single-slide" style="transform: rotate({{randomDegree}}deg);">
+				<img class='slide-img orientation-correction' src="{{slide.photolink}}">
+				<p class='slide-caption'>{{slide.caption}}</p>
+				<p class='slide-author'>{{slide.authorname}}</p>
+			</div>
+		</uib-slide>
+	</uib-carousel>
+</section>

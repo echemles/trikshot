@@ -1,0 +1,14 @@
+<section id="cms" class="text-center">
+	<div masonry id="slides-container">
+		<div ng-repeat="slide in slides"  class="masonry-brick slide-preview">
+			<br><button type="button" ng-click="remove(slides.indexOf(slide), slide._id)"  class="btn btn-danger btn-circle"><span class="glyphicon glyphicon-remove"></span></button> 
+			<button type="button" ng-click="print(slide._id)"  class="btn btn-success btn-circle"><span class="glyphicon glyphicon-print"></span></button><br>
+			<img id="{{slide._id}}" class="img-preview" src="{{slide.photolink}}">
+			<p class='caption-preview'>{{slide.caption}}</p>
+			<p class='author-preview'> - {{slide.authorname}}</p>
+		</div>
+	</div>
+	<div class="slide-btn text-center">
+		<button class="btn btn-success" ui-sref="presentation">NEXT</button>
+	</div>
+</section>

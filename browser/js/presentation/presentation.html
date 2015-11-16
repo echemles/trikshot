@@ -1,0 +1,24 @@
+<section id="presentation" class="text-center">
+	<img src="https://s3.amazonaws.com/trikshot/dependencies.png" id='dependency-expansion'>
+
+	<uib-carousel no-wrap="false" class='text-center' id="expansion-slides">
+		<uib-slide ng-repeat="expansion in expansions">
+			<img class="expansion-item" src="{{expansion}}">
+		</uib-slide>
+	</uib-carousel>
+
+	<div class="slide-btn text-center">
+		<button class="btn btn-success" ui-sref="home">THANK YOU</button>
+	</div>
+</section>
+
+
+	<uib-carousel interval="2000" no-wrap="false">
+		<uib-slide ng-repeat="slide in slides" class="the-slides">
+			<div class="single-slide" style="transform: rotate({{randomDegree}}deg);">
+				<img class='slide-img orientation-correction' src="{{slide.photolink}}">
+				<p class='slide-caption'>{{slide.caption}}</p>
+				<p class='slide-author'>{{slide.authorname}}</p>
+			</div>
+		</uib-slide>
+	</uib-carousel>

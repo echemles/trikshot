@@ -2,14 +2,18 @@
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    photoLink: {
+    photolink: {
         type: String, required: true
     },
     caption: {
         type: String
     },
-    authorName: {
+    authorname: {
         type: String
+    },
+    orientation: {
+    	type: Number,
+    	default: 1
     }
 });
 

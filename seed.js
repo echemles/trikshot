@@ -42,14 +42,64 @@ var seedSlides = function () {
 
     var slides = [
         {
-            photoLink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_21_2015-13.jpg',
-            caption: 'hello horizontal basecase slide',
-            author: 'fullstack2'
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_21_2015-13.jpg',
+            caption: 'how do i know you\'re not morgana?',
+            authorname: 'mazealon'
         },
         {
-            photoLink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_21_2015-57.jpg',
-            caption: 'second landscape slide',
-            author: 'fullstack3'
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_18_2015-4.jpg',
+            caption: 'love beer',
+            authorname: 'mot'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_18_2015-16.jpg',
+            caption: 'Not a drunk photo of Joe.',
+            authorname: '1509 Photog'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_18_2015-46.jpg',
+            caption: 'STONE STREET HAS BEER TOWERS!',
+            authorname: 'Unk!'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_18_2015-50.jpg',
+            caption: 'Doesn\'t get cheesier than this.',
+            authorname: 'random passerby'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/karaoke.gif',
+            caption: 'Na na na na na na na!',
+            authorname: 'Josamzack'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_21_2015-15.jpg',
+            caption: 'COOL! A BUG!',
+            authorname: 'berns'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_26_2015-28.jpg',
+            caption: 'Who knew Anoop was such a comedian?',
+            authorname: 'theory'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_26_2015-32.jpg',
+            caption: 'COOOOPPPPEEERRR!!!!',
+            authorname: 'mumbaichick1989'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/fullstack_oct_26_2015-50.jpg',
+            caption: 'It\'s a rape shack.',
+            authorname: 'Eggs & Burgers'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/wormhole.gif',
+            caption: 'WORMHOLEEEE!',
+            authorname: 'somakeitfast'
+        },
+        {
+            photolink: 'https://s3.amazonaws.com/trikshot/we_are_fullstack.jpg',
+            caption: 'yep.',
+            authorname: 'stacker'
         }
     ];
 
@@ -71,37 +121,4 @@ connectToDb.then(function () {
         });        
     })
 
-    // mongoose.connection.db.dropDatabase(function(){
-
-    //     User.findAsync({}).then(function (users) {
-    //         if (users.length === 0) {
-    //             return seedUsers();
-    //         } else {
-    //             console.log(chalk.magenta('Seems to already be user data. Now exiting.'));
-    //             process.kill(0);
-    //         }
-    //     }).then(function () {
-
-    //         console.log(chalk.green('User seed successful!'));
-    //         process.kill(0);
-    //     }).catch(function (err) {
-    //         console.error(err);
-    //         process.kill(1);
-    //     });
-
-    //     Slide.findAsync({}).then(function (slides) {
-    //         if (slides.length === 0) {
-    //             return seedSlides();
-    //         } else {
-    //             console.log(chalk.magenta('Seems to already be slide data. Now exiting.'));
-    //             process.kill(0);
-    //         }
-    //     }).then(function () {
-    //         console.log(chalk.green('Slide seed successful.'));
-    //         process.kill(0);
-    //     }).catch(function (err) {
-    //         console.error(err);
-    //         process.kill(1);
-    //     });
-    // })
 });

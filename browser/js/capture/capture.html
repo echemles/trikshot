@@ -1,14 +1,32 @@
-<section id="capture">
-	<div class="photocapture">
+<section id="capture" class="">
+	<img src="https://s3.amazonaws.com/trikshot/trikshot_logo3_large.png" class="capture-logo">
+	<form ng-show="!slideReceived" ng-if="hasImage" name="slideCapture" class="text-center capture-form" novalidate>
+		<br>
+		<img ng-src="{{slide.photolink}}" class="preview-capture-img"><br>
+		<p class="text-center result-text">{{status}}</p>
+		<label>Caption</label>
+		<input class="form-control text-center" type="text" name="caption" ng-model="slide.caption" placeholder="EX: Such wow." maxlength="40"><br>
+		<label>Your Name</label>
+		<input class="form-control text-center" type="text" name="caption" ng-model="slide.authorname" placeholder="EX: John Smith" maxlength="40"><br>
+		<div class="submit-btn">
+			<button class="btn btn-success" ng-click="submitSlide()">Submit Slide</button>
+		</div>
+	</form>
+	<div class="photocapture" ng-show="!hasImage">
 		<h3 class='button-text'>TAKE PHOTO</h3>
 		<br>
-		<div class="buttonHolder">
+		<div class="buttonHolder" >
 			<div class="hide-upload button">
 				<input type="file" id="take-photo" class="upload" accept="image/*">
 				<span class="glyphicon glyphicon-camera"></span>
 			</div>
 		</div>
 		<p class="result-text text-center">{{status}}</p>
-		<img ng-show="hasImage" src="{{imageFile}}">
+	</div>
+	<div class="confirmation" ng-show="slideReceived">
+		<p class="text-center result-text">{{status}}</p>
+		<p class="text-center smiley">; )</p><br>
+		<button class="btn btn-success" ng-click="refresh()">Send another!</button>
 	</div>
 </section>
+

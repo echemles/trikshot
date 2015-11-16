@@ -7,10 +7,9 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
         link: function (scope) {
 
             scope.items = [
-                { label: 'Home', state: 'home' },
-                { label: 'About', state: 'about' },
-                { label: 'Documentation', state: 'docs' },
-                { label: 'Capture Photos', state: 'capture'},
+                { label: 'Capture', state: 'capture'},
+                { label: 'Slides', state: 'slideshow'},
+                { label: 'Manage', state: 'cms'},
                 { label: 'Members Only', state: 'membersOnly', auth: true }
             ];
 
@@ -41,9 +40,6 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
             $rootScope.$on(AUTH_EVENTS.loginSuccess, setUser);
             $rootScope.$on(AUTH_EVENTS.logoutSuccess, removeUser);
             $rootScope.$on(AUTH_EVENTS.sessionTimeout, removeUser);
-
         }
-
     };
-
 });
